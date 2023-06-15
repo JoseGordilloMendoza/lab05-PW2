@@ -41,3 +41,8 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+def deletePost(request, id):
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('/')
+
